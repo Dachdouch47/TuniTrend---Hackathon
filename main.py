@@ -19,7 +19,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-app = FastAPI(title="3sg AI Assistant API", version="1.0.0")
+app = FastAPI(title="TuniTrend", version="1.0.0")
 
 # CORS
 origins = [
