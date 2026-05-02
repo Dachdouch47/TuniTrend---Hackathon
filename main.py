@@ -177,38 +177,32 @@ Exemple de format attendu :
     except Exception as e:
         print(f"Erreur génération influenceurs: {e}")
         return []
-    
-def get_trending_keywords_with_ai() -> list:
-    """Demande à Groq une liste de 12 mots-clés tendance en Tunisie, avec un indice de poids (1-10)."""
-    try:
-        prompt = """Tu es un expert en tendances tunisiennes.
-Donne-moi une liste de 12 mots-clés actuellement très recherchés ou discutés en Tunisie. Pour chaque mot, attribue un poids de 1 à 10 représentant son importance/popularité.
-Réponds UNIQUEMENT avec un tableau JSON (sans texte avant ni après) contenant 12 objets avec les clés :
-- "word" (string)
-- "weight" (int entre 1 et 10)
-
-Exemple : [{"word": "Ramadan", "weight": 9}, ...]"""
-        response = groq_client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.7,
-            max_tokens=500,
-        )
-        raw = response.choices[0].message.content.strip()
-        if raw.startswith("```json"):
-            raw = raw[7:]
-        if raw.endswith("```"):
-            raw = raw[:-3]
-        data = json.loads(raw.strip())
-        return data
-    except Exception as e:
-        print(f"Erreur mots-clés tendance: {e}")
-        return [{"word": "Tunisie", "weight": 10}, {"word": "Innovation", "weight": 8}, ...]  # fallback
-
+def get_trending_keywords_static() -> list:
+    """Retourne une liste statique de mots tunisiens avec un poids aléatoire (pour le nuage)."""
+    mots = [
+        "Rakcha", 
+        "bakhanou", 
+        "echiikha", 
+        "Tmakmik", 
+        "Chab3a", 
+        "Mrigel", 
+        "Tayara", 
+        "derby", 
+        "Haja Luxe", 
+        "alou alou", 
+        "Toxic", 
+        "Mfashel", 
+        "Yrouli", 
+        "Yrawa77", 
+        "Malla K3iba"
+    ]
+    # Ajout d'un poids aléatoire pour que le nuage ait des tailles variées
+    import random
+    return [{"word": mot, "weight": random.randint(5, 10)} for mot in mots]
 @app.get("/api/trending-keywords")
 async def get_trending_keywords():
     try:
-        keywords = get_trending_keywords_with_ai()
+        keywords = get_trending_keywords_static()
         return {"keywords": keywords, "timestamp": datetime.now().isoformat()}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
