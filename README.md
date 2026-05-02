@@ -4,7 +4,7 @@
 
 TuniTrend est une application web qui aide les marketeurs et entrepreneurs tunisiens à créer des stratégies de communication percutantes en s’appuyant sur l’actualité du moment (Newsjacking). L’intelligence artificielle (Groq) génère des mots-clés, des stratégies, des suggestions d’influenceurs et des idées de produits/services adaptées au marché tunisien.
 
-![TuniTrend Screenshot](screenshots/home.png) *(optionnel)*
+![TuniTrend Screenshot](/tunitrend.png) *(optionnel)*
 
 ---
 
