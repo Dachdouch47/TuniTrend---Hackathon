@@ -4,11 +4,10 @@
 
 TuniTrend est une application web qui aide les marketeurs et entrepreneurs tunisiens à créer des stratégies de communication percutantes en s’appuyant sur l’actualité du moment (Newsjacking). L’intelligence artificielle (Groq) génère des mots-clés, des stratégies, des suggestions d’influenceurs et des idées de produits/services adaptées au marché tunisien.
 
-<<<<<<< HEAD
+
 ![TuniTrend Screenshot](/tunitrend.png) 
-=======
-![TuniTrend Screenshot](/tunitrend.png)
->>>>>>> 85261b1 (2)
+
+
 
 ---
 
@@ -47,8 +46,8 @@ TuniTrend est une application web qui aide les marketeurs et entrepreneurs tunis
    ```bash
    git clone https://github.com/votre-utilisateur/tunitrend.git
    cd tunitrend
-<<<<<<< HEAD
-=======
+
+
    ```
 
 2. **Créer un environnement virtuel**
@@ -96,7 +95,5 @@ tunitrend/
 
 ---
 
-## Licence
 
-MIT
->>>>>>> 85261b1 (2)
+
